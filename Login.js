@@ -1,29 +1,26 @@
 import React from 'react';
-import { GoogleLogin } from 'react-google-login';
-import './Login.css'; // Ensure you have this CSS file to style the login interface
+import { GoogleLogin } from '@react-oauth/google';
+import './Login.css';
 
-const Login = ({ onLogin }) => {
+function Login({ onLoginSuccess }) {
   const handleLoginSuccess = (response) => {
-    console.log('Login successful', response);
-    onLogin(); // Execute the action after a successful login
+    console.log("Login Success: currentUser:", response);
+    onLoginSuccess(response);
   };
 
   const handleLoginFailure = (response) => {
-    console.error('Login failed', response);
+    console.log("Login failed: response:", response);
   };
 
   return (
     <div className="login-container">
-      <h2>Login with Google</h2>
+      <h2>Please log in to continue</h2>
       <GoogleLogin
-        clientId="YOUR_CLIENT_ID.apps.googleusercontent.com" // Replace with your client ID
-        buttonText="Login"
         onSuccess={handleLoginSuccess}
         onFailure={handleLoginFailure}
-        cookiePolicy={'single_host_origin'}
       />
     </div>
   );
-};
+}
 
 export default Login;
