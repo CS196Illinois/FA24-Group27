@@ -353,6 +353,17 @@ body{
     height: auto;
     overflow: hidden;
 }
+.background {
+    background-color: #101010;
+    position: fixed; /* 100 vh+vw + fixed = permanent cover! */
+    height: 100vh;
+    width: 100vw;
+    top: 0px;
+    left: 0px;
+    bottom: 0;
+    margin: 0px;
+    z-index: -1;
+}
 @keyframes scale{
     0%{
         transform: scale(.6);
@@ -514,17 +525,21 @@ body{
 }
 .services-content{
     height: auto;
-    width: 100%;
-    overflow: hidden;
+    width: 43%;
     text-align: center;
-    padding:2.5%;
+    margin: 1.5rem;
+    padding: 0px 2rem;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
 }
 .service{
-    height:380px;
-    width:28%;
+    height: 12rem;
+    width: 100%;
     margin: 1.5%;
-    background-color: #191919;
-    ;
+    padding: 1rem;
+    background-color: #1b1b1b;
     display: inline-block;
     box-shadow:0px 0px 25px rgb(0,0,0,.05);
     position: relative;
@@ -532,7 +547,7 @@ body{
     z-index: 2;
     border-radius: 10px;
     overflow: hidden;
-    animation: opacity 1.4s ease ;
+    animation: opacity 1.4s ease;
 }
 .service-img{
     text-align: center;
@@ -623,7 +638,38 @@ body{
     opacity: .6;
     transition:  scale .4s ease;
 }
+.plus-button {   /* ADDED FOR SPOT LIST ! */
+    display: flex;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    top: 1rem;
+    right: 1rem;
+    z-index: 2;
 
+    background: #e84a27;
+    color: #000000;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 13px; /* I hate text :) */
+    line-height: 0px;
+    font-size: 4rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    /* hide default styling */
+    border: none;
+    text-decoration: none;
+}
+.plus-button:hover { 
+    background: #d5320d;
+    color: #ffffff;
+}
+.plus-button.holdopen {
+    background: #d5320d;
+    color: #ffffff;
+}
 #contact{
     display: none;
     height: auto;
@@ -705,6 +751,38 @@ form{
     color: whitesmoke;
     padding: 28px;
 }
+.popup-page.inactive {
+    opacity: 0;
+    z-index: -10;
+    transition: all 0.4s ease;
+}
+.popup-page {
+    position: absolute;
+    z-index: 100;
+    font-family: -apple-system;
+    top: 0;
+    background: rgba(8, 8, 8, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    transition: all 0.4s ease;
+}
+
+.popup-box {
+    position: absolute;
+    margin: auto;
+    border-radius: 10px;
+    width: 50%; /* change this on screen width */
+    height: 80%;
+    min-height: 0sp;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem;
+}
 .input-subject{
     width: 84%;
     padding:10px 20px;
@@ -730,12 +808,23 @@ form{
     font-family: poppins;
     font-size: 18px;
 }
-form button{
+.number-selector {
+    accent-color: #e84a27;
+}
+.button-container {
+    position: absolute;
+    display: flex;
+    align-self: flex-end;
+    justify-content: center;
+    align-items: center;
+    column-gap: 0.5rem;
+}
+.form-button{
     padding:8px 24px;
     font-family: poppins;
     font-size:20px;
     color: whitesmoke;
-    background:#BB0035;
+    background:#e84a27;
     opacity: .8;
     margin: 20px;
     cursor: pointer;
@@ -743,8 +832,11 @@ form button{
     border-radius: 8px;
     transition: all .4s ease;
 }
-form button:hover{
+.form-button:hover{
   opacity: 1;
+}
+.form-button.invalid{
+    background-color: #2b2b2b;
 }
 .contact-info-header{
     position: relative;
