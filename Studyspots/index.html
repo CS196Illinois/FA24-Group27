@@ -1,187 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="StudySpaces" />
-	<meta name="keywords" content="study, study space, finder, location, easy" />
-	<meta name="author" content="Group 27" />
+    <meta
+      name="keywords"
+      content="study, study space, finder, location, easy"
+    />
+    <meta name="author" content="Group 27" />
     <title>StudySpots</title>
-  <!--favicon-img--> 
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="stylesheet" href="css/index.css">
+    <!--favicon-img-->
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="stylesheet" href="css/index.css" />
     <!--main css file-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <!--contains all the div-->
     <div id="all">
-    <!--mouse  follower-->
-        <div class="cursor"></div>
-    <!--mouse  follower-->
-    <!--loader-->
-        <div id="loader">
-            <span class="color">Study</span>Spots 
+      <!--mouse  follower   ///   THIS HAS BEEN COMMENTED OUT. UNCOMMENT TO RESTORE CURSOR CIRCLE
+            <div class="cursor"></div>
+        mouse  follower-->
+      <!--loader-->
+      <div id="loader"><span class="color">Study</span>Spots</div>
+      <!--loader-end-->
+      <!--link-screen-->
+      <div id="breaker"></div>
+      <div id="breaker-two"></div>
+      <!--link-screen-->
+      <!--Main-Section-->
+      <!--Navigator-fullscreen-->
+      <div id="navigation-content">
+        <div class="logo">
+          <img src="images/illinois.png" alt="logo" />
         </div>
-    <!--loader-end-->
-    <!--link-screen-->
-        <div id="breaker">
+        <div class="navigation-close">
+          <span class="close-first"></span>
+          <span class="close-second"></span>
         </div>
-        <div id="breaker-two">
+        <div class="navigation-links">
+          <a href="#" data-text="HOME" id="home-link">HOME</a>
+          <!-- ANYTHING THAT SAYS ABOUT IS FINDER -->
+          <a href="#" data-text="FINDER" id="about-link">FINDER</a>
+          <a href="#" data-text="RESOURCES" id="resource-link">RESOURCES</a>
         </div>
-    <!--link-screen-->
-        <!--Main-Section-->
-        <!--Navigator-fullscreen-->
-        <div id="navigation-content">
-            <div class="logo">
-                <img src="images/illinois.png" alt="logo">
-            </div>
-            <div class="navigation-close">
-                <span class="close-first"></span>
-                <span class="close-second"></span>
-            </div>
-            <div class="navigation-links">
-                <a href="#" data-text="HOME" id="home-link" >HOME</a>
-                <!-- ANYTHING THAT SAYS ABOUT IS FINDER -->
-                <a href="#" data-text="FINDER" id="about-link" >FINDER</a>
-                <a href="#" data-text="RESOURCES" id="resource-link" >RESOURCES</a>
-            </div>
+      </div>
+      <!--Navigator-Fullscreen END-->
+      <!--Home Page-->
+      <!--Menubar-->
+      <div id="navigation-bar">
+        <img src="images/illinois.png" alt="logo" />
+        <div class="menubar">
+          <span class="first-span"></span>
+          <span class="second-span"></span>
+          <span class="third-span"></span>
         </div>
-        <!--Navigator-Fullscreen END-->
-          <!--Home Page-->
-        <!--Menubar-->
-        <div id="navigation-bar">
-            <img src="images/illinois.png" alt="logo">
-            <div class="menubar">
-                <span class="first-span"></span>
-                <span class="second-span"></span>
-                <span class="third-span"></span>
+      </div>
+      <!--Menubar End-->
+      <!--Header-->
+      <div id="header">
+        <div id="particles"></div>
+        <div class="header-content">
+          <div class="header-content-box">
+            <div class="firstline"><span class="color">Study</span>Spots</div>
+            <div class="secondline">
+              Find
+              <span
+                class="txt-rotate color"
+                data-period="1200"
+                data-rotate='[ " better study locations.", " closer study spots.", " available spaces." ]'
+              ></span>
+              <span class="slash">|</span>
             </div>
+          </div>
         </div>
-        <!--Menubar End-->
-          <!--Header-->
-        <div id="header">
-            <div id="particles"></div>
-            <div class="header-content">
-                <div class="header-content-box">
-                <div class="firstline"><span class="color">Study</span>Spots</div>
-                <div class="secondline">
-                Find
-            <span class="txt-rotate color" data-period="1200"data-rotate='[ " better study locations.", " closer study spots.", " available spaces." ]'></span>
-            <span class="slash">|</span>
-        </div>   
-            </div>
-            </div>
-        </div>
-           <!--Header End-->
-       <!--HomePage End-->
-        <!--Main-Section End-->
-        <!--about-->
-        <div id="about">
-            <!--about content-->
-            <div id="about-content">
-                <div class="about-header">
-                    Find <span class="color">Locations</span>
-                </div>
-                <div class="about-main">
+      </div>
+      <!--Header End-->
+      <!--HomePage End-->
+      <!--Main-Section End-->
+      <!--FINDER/LISTPAGE-->
+      <div id="about">
+        <!--FINDER/LISTPAGE content-->
+        <div id="about-content">
+          <div class="about-header">
+            Find <span class="color">Locations</span>
+          </div>
+          <div class="about-main">
             <div class="about-first-paragraph wow">
-            <!--about description-->
-               <span class="about-first-line">
-                    Find locations
-                    <span class="color"> on campus </span> that are 
-                    close to you! </span>
-                     <br>
-               <span class="about-second-line"> Find available study locations without having to walk so far! Powered by crowdsourced data from students
-                at the University of Illinois. </span>
-
+              <!--about description-->
+              <span class="about-first-line">
+                Find locations
+                <span class="color"> on campus </span> that are close to you!
+              </span>
+              <br />
+              <span class="about-second-line">
+                Find available study locations without having to walk so far!
+                Powered by crowdsourced data from students at the University of
+                Illinois.
+              </span>
             </div>
             <!--about picture-->
             <div class="about-img">
-                <p> <iframe src="http://127.0.0.1:5000" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </p>
+              <p>
+                <iframe
+                  src="http://127.0.0.1:5000"
+                  width="600"
+                  height="450"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </p>
             </div>
-            </div>
-    
-            </div>
-            <!--services start-->
-            <div id="services">
-            <!--services content-->
-                    <div class="services-content">
-                           <div class="service-one service">
-                               <div class="service-img">
-                               <img src="images/coding.png" alt="service-one">
-                               </div>
-                               <div class="service-description">
-                                <h2>Header</h2>
-                                <p>Big Paragraph</p>
-                               </div>
-                           </div>
-                           <div class="service-two service">
-                               <div class="service-img">
-                                <img src="images/coding.png" alt="service-one">
-                            </div>
-                               <div class="service-description">
-                                <h2>Header</h2>
-                                <p>Big Paragraph</p>
-                               </div>
-                           </div>
-                           <div class="service-three service">
-                            <div class="service-img">
-                               <img src="images/bulb.png" alt="service-three">
-                            </div>
-                            <div class="service-description">
-                                <h2>Header</h2>
-                                <p>Big Paragraph</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="contact-header">Search <span class="color"> Locations</span>
-                        <div class="contact-content">
-                            <!--Contact form-->
-                                <div class="contact-form">
-                                    <div class="form-header">
-                                        Fill out the form
-                                    </div>
-                                    <form id="myForm" action="#">
-                                    <div class="input-line">
-                                        <input  id="name" type="text" placeholder="Name" class="input-name">
-                                        <input id="email" type="email" placeholder="Email"  class="input-name">
-                                    </div>
-                                    <input type="text" id="subject" placeholder="subject" class="input-subject">
-                                    <textarea id ="body" class="input-textarea" placeholder="message"></textarea>
-                                    <button type="button" id ="submit" value="send">Submit</button>
-                                    </form>
-                                
-                                </div>
-                            <!--Contact form-->
-            </div>
-            <!--services content end-->
-            <!--services end-->
-    <!--copyright-section-->
-            <div class="footer">
-             <div class="footer-text">
-                 <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> Group 27
-             </div>
-            </div>
-    <!--copyright-section-->
+          </div>
         </div>
+        <!--services start-->
+        <div id="services">
+          <!--services content-->
+          <div id="react-link"></div>
+          <script type="module" src="/react-listpage.jsx"></script>
+        </div>
+        <div class="contact-header">
+          Search <span class="color"> Locations</span>
+          <div class="contact-content">
+            <!--Contact form-->
+            <div class="contact-form">
+              <div class="form-header">Fill out the form</div>
+              <form id="myForm" action="#">
+                <div class="input-line">
+                  <input
+                    id="name"
+                    type="text"
+                    placeholder="Name"
+                    class="input-name"
+                  />
+                  <input
+                    id="email"
+                    type="email"
+                    placeholder="Email"
+                    class="input-name"
+                  />
+                </div>
+                <input
+                  type="text"
+                  id="subject"
+                  placeholder="subject"
+                  class="input-subject"
+                />
+                <textarea
+                  id="body"
+                  class="input-textarea"
+                  placeholder="message"
+                ></textarea>
+                <button type="button" id="submit" value="send">Submit</button>
+              </form>
+            </div>
+            <!--Contact form-->
+          </div>
+          <!--services content end-->
+          <!--services end-->
+        </div>
+        <!--copyright-section-->
+        <div class="footer">
+          <div class="footer-text">
+            <img
+              src="./images/copyright.png"
+              alt="copyright-img"
+              class="images"
+              height="14px"
+            />
+            Group 27
+          </div>
+        </div>
+        <!--copyright-section-->
         <!--about end-->
-    <!-- resources -->
-    <div id="resources"> 
-        <div class="resources-content">
-            
+        <!-- resources -->
+        <div id="resources">
+          <div class="resources-content"></div>
         </div>
+      </div>
+      <!--all the divisions-->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/particles.js"></script>
+      <script src="js/particles.min.js"></script>
+      <script src="js/index.js"></script>
+      <!--particles script-->
+      <script>
+        particlesJS("particles", {
+          particles: {
+            number: { value: 40, density: { enable: true, value_area: 800 } },
+            color: { value: "#ffffff" },
+            shape: {
+              type: "circle",
+              stroke: { width: 0, color: "#000000" },
+              polygon: { nb_sides: 5 },
+              image: { src: "img/github.svg", width: 100, height: 100 },
+            },
+            opacity: {
+              value: 0.5,
+              random: false,
+              anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false },
+            },
+            size: {
+              value: 3,
+              random: true,
+              anim: { enable: false, speed: 40, size_min: 0.1, sync: false },
+            },
+            line_linked: {
+              enable: true,
+              distance: 150,
+              color: "#ffffff",
+              opacity: 0.4,
+              width: 1,
+            },
+            move: {
+              enable: true,
+              speed: 6,
+              direction: "none",
+              random: false,
+              straight: false,
+              out_mode: "out",
+              bounce: false,
+              attract: { enable: false, rotateX: 600, rotateY: 1200 },
+            },
+          },
+          interactivity: {
+            detect_on: "canvas",
+            events: {
+              onhover: { enable: true, mode: "repulse" },
+              onclick: { enable: true, mode: "push" },
+              resize: true,
+            },
+            modes: {
+              grab: { distance: 400, line_linked: { opacity: 1 } },
+              bubble: {
+                distance: 400,
+                size: 40,
+                duration: 2,
+                opacity: 8,
+                speed: 3,
+              },
+              repulse: { distance: 200, duration: 0.4 },
+              push: { particles_nb: 4 },
+              remove: { particles_nb: 2 },
+            },
+          },
+          retina_detect: true,
+        });
+      </script>
     </div>
-
-    </div>
-    <!--all the divisions-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/particles.js"></script>
-    <script src="js/particles.min.js"></script>
-    <script src="js/index.js"></script>
-    <!--particles script-->
-    <script>
-  particlesJS("particles", {"particles":{"number":{"value":40,"density":{"enable":true,"value_area":800}},"color":{"value":"#ffffff"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.5,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":6,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});
-    </script>
-
-</body>
+  </body>
 </html>
