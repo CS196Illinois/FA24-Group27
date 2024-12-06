@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
-// import './PopupForm.css';
+
+import "../firebase/firebase-config"; // links to firebase
+import "../firebase/firestore-handle"; // provides functions for firebase
 
 function PopupForm(props) {
   const [isFilledForm, setIsFilledForm] = useState(false);
@@ -45,14 +47,15 @@ function PopupForm(props) {
         ", noise: " +
         noiseLevel
     );
-    //console.log(JSON.stringify(sessionStorage.getItem("spotListData")))
+
+    db.addLocation(spotName, location, noiseLevel);
+
     currentStorage = JSON.parse(sessionStorage.getItem("spotListData"))
       ? JSON.parse(sessionStorage.getItem("spotListData"))
       : [];
     currentStorage.push(new Item(spotName, location, noiseLevel));
     sessionStorage.setItem("spotListData", JSON.stringify(currentStorage));
 
-    //console.log(JSON.stringify(sessionStorage.getItem("spotListData")))
     props.onClose(); // close the form lol
     hardResetSavedFormData();
   }

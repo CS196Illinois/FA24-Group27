@@ -5,8 +5,8 @@ import PlusButton from "./components/PlusButton";
 import ListCard from "./components/ListCard";
 import PopupForm from "./components/PopupForm";
 
-// THIS IS THE COPY FOR EDITING TO MERGE/EMBED INTO THE HTML PAGE!!!
-// THIS IS NOT THE ORIGINAL COPY!!
+// All firebase data store/retrieval actions are
+// done through PopupForm.jsx (from the form itself)
 
 function ListPage() {
   const [showForm, setShowForm] = useState(false);
@@ -14,14 +14,6 @@ function ListPage() {
   const [spotListData, setSpotListData] = useState([
     { name: "Illini Union", location: "1401 W Green St ", noise: "1" },
   ]);
-  // this likely doesn't need to be here (right now it's in PopupForm)
-  // but it may be more useful here once firestore is connected?
-  // probably not, but check it
-  function Item(name, location, noise) {
-    this.name = name;
-    this.location = location;
-    this.noise = noise;
-  }
 
   function reRenderListData() {
     setSpotListData(JSON.parse(sessionStorage.getItem("spotListData")));
