@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import PlusButton from "./components/PlusButton";
 import ListCard from "./components/ListCard";
 import PopupForm from "./components/PopupForm";
+import { SignInButton } from "./components/SignInButton";
+import { SignOutButton } from "./components/SignOutButton";
 
 import { getAllLocations, removeLocation } from "./firebase/firestore-handle";
 
@@ -15,11 +17,11 @@ function ListPage() {
     { name: "Illini Union", location: "1401 W Green St ", noise: "1" },
   ]);
 
-  const user = "dev";
+  const user = localStorage.getItem("id");
 
   async function reRenderListData() {
     // setSpotListData(JSON.parse(sessionStorage.getItem("spotListData")));
-    console.log("Retrieving data for user " + user + "...:");
+    console.log("Retrieving data for user " + localStorage.getItem("email") + "...:");
     const userDataSnapshot = await getAllLocations(user);
     setSpotListData(userDataSnapshot);
     console.log(userDataSnapshot);
@@ -38,6 +40,12 @@ function ListPage() {
 
   return (
     <>
+      <div>
+        <SignInButton />
+      </div>
+      <div>
+        <SignOutButton />
+      </div>
       <div className="background" /> {/* needed to hide form */}
       <PlusButton formOpen={showForm} onClick={toggleShowForm} />{" "}
       {/* absolute */}

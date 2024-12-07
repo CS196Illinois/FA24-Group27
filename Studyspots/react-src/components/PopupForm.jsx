@@ -56,7 +56,7 @@ function PopupForm(props) {
     submission.preventDefault();
 
     // call firestore functions using spotName, location, noiseLevel:
-    await addLocation("dev", spotName, location, noiseLevel);
+    await addLocation(localStorage.getItem("id"), spotName, location, noiseLevel);
 
     // currentStorage = JSON.parse(sessionStorage.getItem("spotListData"))
     //   ? JSON.parse(sessionStorage.getItem("spotListData"))

@@ -1,0 +1,11 @@
+.SignInButton {
+    padding-top: 2vh;
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 200px;
+    color: orange;
+    font-size: 3vh;
+}
