@@ -1,7 +1,7 @@
 import { db } from "./firebase-config";
 import { doc, setDoc, deleteDoc, getDoc } from "firebase/firestore";
 
-export const addLocation = async (name, location, noise) => {
+export const addLocation = async (id, name, location, noise) => {
     const docRef = doc(db, id, name);
     getDoc(docRef).then((doc) => {
         setDoc(docRef, {

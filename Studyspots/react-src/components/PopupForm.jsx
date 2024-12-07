@@ -48,7 +48,7 @@ function PopupForm(props) {
         noiseLevel
     );
 
-    db.addLocation(spotName, location, noiseLevel);
+    db.addLocation("dev", spotName, location, noiseLevel);
 
     currentStorage = JSON.parse(sessionStorage.getItem("spotListData"))
       ? JSON.parse(sessionStorage.getItem("spotListData"))
