@@ -30,9 +30,7 @@ export const SignInButton = () => {
 
     return (
         <div className="SignInButton">
-            {loading ? (
-                <p>Loading...</p>
-            ) : value ? (
+            {value ? (
                 <p>Signed in as: {value}</p>
             ) : (
                 <button type="button" onClick={handleClick}>
