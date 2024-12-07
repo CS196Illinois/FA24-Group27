@@ -38,8 +38,7 @@ function ListPage() {
 
   return (
     <>
-      <div className="background" />{" "}
-      {/* needed to hide form (+ easier darkmode?) */}
+      <div className="background" /> {/* needed to hide form */}
       <PlusButton formOpen={showForm} onClick={toggleShowForm} />{" "}
       {/* absolute */}
       <ul className="services-content">
@@ -54,8 +53,8 @@ function ListPage() {
       <PopupForm
         isShown={showForm}
         onClose={() => {
-          toggleShowForm();
           reRenderListData();
+          toggleShowForm();
         }}
         forceReRenderList={() => {
           reRenderListData();

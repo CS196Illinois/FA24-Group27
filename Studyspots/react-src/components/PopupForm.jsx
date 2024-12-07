@@ -57,7 +57,6 @@ function PopupForm(props) {
 
     // call firestore functions using spotName, location, noiseLevel:
     await addLocation("dev", spotName, location, noiseLevel);
-    props.forceReRenderList();
 
     // currentStorage = JSON.parse(sessionStorage.getItem("spotListData"))
     //   ? JSON.parse(sessionStorage.getItem("spotListData"))
@@ -66,6 +65,7 @@ function PopupForm(props) {
     // sessionStorage.setItem("spotListData", JSON.stringify(currentStorage));
 
     props.onClose(); // close the form lol
+    // also re-renders the list
     hardResetSavedFormData();
   }
 

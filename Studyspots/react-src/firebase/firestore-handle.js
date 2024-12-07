@@ -3,7 +3,7 @@ import { doc, setDoc, deleteDoc, getDoc, collection, getDocs } from "firebase/fi
 
 export const addLocation = async (id, name, location, noise) => {
     const docRef = doc(db, id, name);
-    getDoc(docRef).then((doc) => {
+    await getDoc(docRef).then((doc) => {
         setDoc(docRef, {
             name: name,
             location: location,
