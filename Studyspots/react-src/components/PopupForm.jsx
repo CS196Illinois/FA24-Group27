@@ -1,6 +1,11 @@
 import React from "react";
-import { useState } from "react";
-// import './PopupForm.css';
+import { useState, useEffect } from "react";
+
+import {
+  addLocation,
+  removeLocation,
+  getLocation,
+} from "../firebase/firestore-handle"; // provides functions for firebase
 
 function PopupForm(props) {
   const [isFilledForm, setIsFilledForm] = useState(false);
@@ -31,28 +36,35 @@ function PopupForm(props) {
     }
   }
 
+  // FOR TESTING PURPOSES ONLY -- anything named "test" won't save
+  async function clearTestData() {
+    console.log("Removing test locations...");
+    removeLocation("dev", "Test");
+    removeLocation("dev", "test");
+    removeLocation("dev", "Test2");
+    await removeLocation("dev", "test2");
+    console.log("Test locations removed");
+    props.forceReRenderList();
+  }
+  useEffect(() => {
+    clearTestData();
+  }, []); // <-- EMPTY DEPENDENCY ARRAY -- runs once on mount
+
   let currentStorage = [];
 
-  function sendSaveFormData(submission) {
+  async function sendSaveFormData(submission) {
     submission.preventDefault();
 
-    // call firestore functions using spotName, location, noiseLevel
-    console.log(
-      "name: " +
-        spotName + // can delete this after implementing
-        ", location: " +
-        location +
-        ", noise: " +
-        noiseLevel
-    );
-    //console.log(JSON.stringify(sessionStorage.getItem("spotListData")))
-    currentStorage = JSON.parse(sessionStorage.getItem("spotListData"))
-      ? JSON.parse(sessionStorage.getItem("spotListData"))
-      : [];
-    currentStorage.push(new Item(spotName, location, noiseLevel));
-    sessionStorage.setItem("spotListData", JSON.stringify(currentStorage));
+    // call firestore functions using spotName, location, noiseLevel:
+    await addLocation("dev", spotName, location, noiseLevel);
+    props.forceReRenderList();
 
-    //console.log(JSON.stringify(sessionStorage.getItem("spotListData")))
+    // currentStorage = JSON.parse(sessionStorage.getItem("spotListData"))
+    //   ? JSON.parse(sessionStorage.getItem("spotListData"))
+    //   : [];
+    // currentStorage.push(new Item(spotName, location, noiseLevel));
+    // sessionStorage.setItem("spotListData", JSON.stringify(currentStorage));
+
     props.onClose(); // close the form lol
     hardResetSavedFormData();
   }
@@ -64,7 +76,7 @@ function PopupForm(props) {
     // hard reset values
     setSpotName(""); // these top two probably aren't really necessary
     setLocation(""); // since the user has to change them again anyway
-    setNoiseLevel(0); // this one is important though!!
+    setNoiseLevel(0); // this one is important though!! (to match the default display)
   }
 
   return (

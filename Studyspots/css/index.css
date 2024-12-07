@@ -75,7 +75,7 @@ body {
   height: 100vh;
   width: 100%;
   position: fixed;
-  z-index: 5;
+  z-index: 7;
   background-color: #020202;
   transform: translateY(-200%);
   display: flex;
@@ -87,13 +87,14 @@ body {
   position: fixed;
   height: 100px;
   width: 100%;
-  z-index: 3;
+  z-index: 6;
   padding: 10px;
   background: transparent;
   overflow: hidden;
 }
 #react-link {
-  height: 100%;
+  height: fit-content;
+  min-height: 40rem;
   width: 100%;
 }
 .menubar {
@@ -547,24 +548,41 @@ body {
   align-items: start;
 }
 .service {
-  height: 12rem;
+  height: fit-content;
+  min-height: 12rem;
   width: 97%;
   margin: 1.5%;
-  padding: 1rem;
+  padding: 0.5rem 2rem;
   background-color: #1b1b1b;
   display: inline-block;
   box-shadow: 0px 0px 25px rgb(0, 0, 0, 0.05);
   position: relative;
-  text-align: center;
+  text-align: start;
   z-index: 2;
   border-radius: 10px;
   overflow: hidden;
   animation: opacity 1.4s ease;
 }
+.service-delete-icon {
+  all: unset;
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  cursor: pointer;
+  display: block;
+  transition: all 0.3s ease;
+  opacity: 0.7;
+  font-size: 2.8rem;
+  color: whitesmoke;
+  transform: rotate(45deg);
+}
+.service-delete-icon:hover {
+  opacity: 1;
+}
+
 .service-img {
   text-align: center;
 }
-
 .service-img img {
   display: inline-block;
   z-index: 2;
@@ -595,10 +613,18 @@ body {
   font-size: 25px;
 }
 .service-description p {
-  padding: 10px;
+  padding: 10px 3rem;
   font-weight: 200;
   font-size: 16px;
   opacity: 0.8;
+}
+.service-description h3 {
+  padding: 10px 0.5rem;
+  margin: 5px;
+  font-weight: 200;
+  font-size: 20px;
+
+  font-style: oblique;
 }
 
 .header-caption {
@@ -747,7 +773,7 @@ button:hover .index {
   z-index: 100;
   font-family: -apple-system;
   top: 0;
-  background: rgba(8, 8, 8, 0.55);
+  background: rgba(8, 8, 8, 0.65);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -846,7 +872,6 @@ button:hover .index {
   align-self: flex-center;
   justify-content: center;
   align-items: center;
-  column-gap: 0.5rem;
 }
 .form-button {
   padding: 8px 24px;
@@ -855,7 +880,7 @@ button:hover .index {
   color: whitesmoke;
   background: #e84a27;
   opacity: 0.8;
-  margin: 20px;
+  margin: 20px 15px;
   cursor: pointer;
   border: none;
   border-radius: 8px;
@@ -1058,19 +1083,12 @@ For devices with smaller width like mobile phone
     border-radius: 10%;
   }
   .service {
-    height: 12rem;
+    height: fit-content;
     width: 97%;
     margin: 1.5%;
-    padding: 1rem;
     background-color: #1b1b1b;
     display: inline-block;
     box-shadow: 0px 0px 25px rgb(0, 0, 0, 0.05);
-    position: relative;
-    text-align: center;
-    z-index: 2;
-    border-radius: 10px;
-    overflow: hidden;
-    animation: opacity 1.4s ease;
   }
   .service-img img {
     display: inline-block;
@@ -1346,28 +1364,19 @@ for tabs and large phones
     left: 2%;
   }
   .service {
-    height: 12rem;
+    height: fit-content;
     width: 97%;
     margin: 1.5%;
-    padding: 1rem;
     background-color: #1b1b1b;
     display: inline-block;
     box-shadow: 0px 0px 25px rgb(0, 0, 0, 0.05);
-    position: relative;
-    text-align: center;
-    z-index: 2;
-    border-radius: 10px;
-    overflow: hidden;
-    animation: opacity 1.4s ease;
   }
   .service-description h2 {
-    padding: 10px;
     margin: 5px;
     font-weight: 200;
     font-size: 22px;
   }
   .service-description p {
-    padding: 10px;
     font-weight: 200;
     font-size: 15px;
     opacity: 0.8;
@@ -1511,28 +1520,19 @@ for tabs and large phones
     transition: all 0.4s ease;
   }
   .service {
-    height: 12rem;
+    height: fit-content;
     width: 97%;
     margin: 1.5%;
-    padding: 1rem;
     background-color: #1b1b1b;
     display: inline-block;
     box-shadow: 0px 0px 25px rgb(0, 0, 0, 0.05);
-    position: relative;
-    text-align: center;
-    z-index: 2;
-    border-radius: 10px;
-    overflow: hidden;
-    animation: opacity 1.4s ease;
   }
   .service-description h2 {
-    padding: 10px;
     margin: 5px;
     font-weight: 200;
     font-size: 32px;
   }
   .service-description p {
-    padding: 10px;
     font-weight: 200;
     font-size: 18px;
     opacity: 0.8;
