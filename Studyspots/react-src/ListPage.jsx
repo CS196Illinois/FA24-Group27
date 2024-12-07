@@ -14,7 +14,7 @@ function ListPage() {
   const toggleShowForm = () => setShowForm(!showForm);
   const [spotListData, setSpotListData] = useState([
     // spotListData is an array!
-    { name: "Illini Union", location: "1401 W Green St ", noise: "1" },
+    { name: "Login to use!", location: "See your locations here!", noise: "1" },
   ]);
 
   const user = localStorage.getItem("id");
