@@ -1,5 +1,5 @@
 import { db } from "./firebase-config";
-import { doc, setDoc, deleteDoc, getDoc } from "firebase/firestore";
+import { doc, setDoc, deleteDoc, getDoc, collection, getDocs } from "firebase/firestore";
 
 export const addLocation = async (id, name, location, noise) => {
     const docRef = doc(db, id, name);
@@ -21,6 +21,11 @@ export const removeLocation = async (id, name) => {
     } else {
         console.log("Location could not be found")
     }
+}
+
+export const getAllLocations = async (id) => {
+    const snapshot = await getDocs(collection(db, id))
+    return snapshot.docs.map(doc => doc.data());
 }
 
 export const getLocation = async (id, name) => {
